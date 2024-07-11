@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/images/logo.png">
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/index.css">
+  <title>🥕 HAPPY HELKI </title>
+</head>
+<body>
+  <main>
+    <section class="start">
+      <h1>HAPPY<br/>HELKI<br/>BITE</h1>
+      <img class="logo" src="./assets/images/logo.png" alt="메인 로고">
+      <p>나의 헬키푸키 찰떡궁합 메뉴 찾기</p>
+      <button class="start-btn" type="button">테스트 시작하기</button>
+    </section>
+
+    <section class="question">
+      <h2>
+        <a href="./index.html">
+          <img src="./assets/images/logo.png" alt="로고">
+          <p>HAPPY HELKI BITE</p>
+        </a>
+      </h2>
+      <p class="step"><span id="current-step">1</span>/<span id="total-step"></span></p>
+      <div class="loading-bar"><div class="loading-status"></div></div>
+
+      <article id="contentBox">
+        <h3 id="question"></h3>
+        <img id="question-img" class="question-img" src="" alt="">
+
+        <div class="answer-box" id="answer-box"></div>
+        <button id="btn-prev" class="btn-prev">
+          <img src="./assets/images/ico-retry.svg" alt="">
+        </button>
+      </article>
+    </section>
+  </main>
+
+
+  <script src="./assets/scripts/data.js"></script>
+  <script src="./assets/scripts/index.js"></script>
+</body>
+</html>
