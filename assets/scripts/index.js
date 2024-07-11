@@ -58,7 +58,7 @@ const calculateResult = () => {
 }
 
 const copyCode = (content) => {
-    navigator.clipboard.writeText(code)
+    navigator.clipboard.writeText(content)
     .then(() => alert('코드가 복사되었습니다.'))
     .catch(() => {alert('코드 복사에 실패아였습니다.'); console.log(err)})
 }
