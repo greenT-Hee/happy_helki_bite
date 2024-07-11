@@ -57,20 +57,20 @@ const calculateResult = () => {
   return result;
 }
 
-const copyCode = (content) => {
+const copyCode = (content, msg) => {
     navigator.clipboard.writeText(content)
-    .then(() => alert('코드가 복사되었습니다.'))
+    .then(() => alert(msg))
     .catch(() => {alert('코드 복사에 실패아였습니다.'); console.log(err)})
 }
 const $shareBox = document.querySelector(".share-btns-box");
 $shareBox?.addEventListener('click', (e) => {
   if(e.target.id === 'btn-copy-code') {
     const code = document.querySelector('.code-box > p').textContent;
-    copyCode(code);
+    copyCode(code, "코드가 복사되었습니다.");
   }
   if(e.target.id === 'btn-url') {
     const url = location.href;
-    copyCode(url);
+    copyCode(url, "url이 복사되었습니다.");
   }
 })
 
