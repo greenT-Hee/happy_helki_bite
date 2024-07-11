@@ -34,10 +34,16 @@ const loadList = () => {
       
   const $answerBtn = document.querySelectorAll('#answer-box > button');
   $answerBtn?.forEach(ele => {
-    ele.addEventListener('click', () => loadList(++idx))
+    ele.addEventListener('click', () => {
+      idx += 1;
+      loadList();
+    })
   });
 }
-$prevBtn.addEventListener('click', () => loadList(--idx))
+$prevBtn?.addEventListener('click', () => {
+    idx -= 1;
+    loadList();
+})
 
 const loadFlash = () => {
   const $flash = document.querySelector('section.start');
@@ -58,5 +64,5 @@ const loadFlash = () => {
 
 
 window.addEventListener('load', () => {
-  loadFlash();
+  if(!location.href.includes('result'))loadFlash();
 })
