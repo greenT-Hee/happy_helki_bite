@@ -34,6 +34,7 @@ const loadList = () => {
     ele.addEventListener('click', () => {
       // 가중치 추가
       if(idx === 9) {
+        randomCode();
         let result = calculateResult();
         let random = Math.floor(Math.random() * (result.length -1));
         location.href = '../pages/result-' + parseInt(result[random] + 1).toString() + '.html';
@@ -92,12 +93,36 @@ const loadFlash = () => {
 };
 
 
+const randomNum = () => {
+  return Math.floor(Math.random() * 10);
+}
+const randomTxt = () => {
+  return Math.random().toString(36).substring(2, 12);
+}
+const randomCode = () => {
+  const radomCode = randomNum() + randomTxt() + randomNum();
+  localStorage.setItem('code', radomCode)
+}
+
+
 window.addEventListener('load', () => {
-  if(!location.href.includes('result')) {
+  if(!location.href.includes('pages')) {
     for(let i = 0; i < select.length; i++) {
       select[i] = 0
     }
     loadFlash();
   }
+
+  if(location.href.includes('result')) {
+    const code = localStorage.getItem('code');
+    if(!code) {
+      alert("찰떡궁합 테스트를 먼저 진행해주세요.");
+      location.href = '/';
+      return
+    }
+    const $codeP = document.querySelector('.code-box > p');
+    $codeP.textContent = code;
+  }
+  
   
 })
