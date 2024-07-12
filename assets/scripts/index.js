@@ -34,10 +34,10 @@ const loadList = () => {
     ele.addEventListener('click', () => {
       // 가중치 추가
       if(idx === 9) {
-        randomCode();
+        const shareCode = randomCode();
         let result = calculateResult();
         let random = Math.floor(Math.random() * (result.length -1));
-        location.href = '../pages/result-' + parseInt(result[random] + 1).toString() + '.html';
+        location.href = '../pages/result-' + parseInt(result[random] + 1).toString() + '.html?&' + shareCode;
       }
       targetArr = qList[idx].answer[order].type;
       targetArr.map(ele => select[ele - 1] += 1);
@@ -101,9 +101,37 @@ const randomTxt = () => {
 }
 const randomCode = () => {
   const radomCode = randomNum() + randomTxt() + randomNum();
-  localStorage.setItem('code', radomCode)
+  return radomCode;
 }
 
+
+const getCoupon = () => {
+  const $eventModal = document.querySelector('#event-modal');
+  const $closeBtn = document.querySelector('#btn-close');
+  const $input = document.querySelector('#code-input');
+  const $startDate = document.querySelector('#start-date');
+  const $endDate = document.querySelector('#end-date');
+  if(!$input.value) {
+    alert('코드를 입력해주세요.')
+    return;
+  };
+  // if($input.value != localStorage.getItem('code')) {
+  //   alert('유효한 코드번호가 아닙니다.');
+  //   return;
+  // }
+
+  $eventModal.style.display = 'block';
+  $closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    $eventModal.style.display = 'none';
+  });
+
+  const date = new Date();
+  let today = date.toLocaleDateString().replaceAll(' ', '');
+  let nextMonth = new Date(date.setMonth(date.getMonth() + 1)).toLocaleDateString().replaceAll(' ', '');
+  $startDate.textContent =today;
+  $endDate.textContent = nextMonth;
+}
 
 window.addEventListener('load', () => {
   if(!location.href.includes('pages')) {
@@ -113,16 +141,21 @@ window.addEventListener('load', () => {
     loadFlash();
   }
 
+  // 결과 페이지
   if(location.href.includes('result')) {
-    const code = localStorage.getItem('code');
+    const code = location.search.split('&')[1];
+    const $codeP = document.querySelector('.code-box > p');
     if(!code) {
       alert("찰떡궁합 테스트를 먼저 진행해주세요.");
       location.href = '/';
-      return
+      return;
     }
-    const $codeP = document.querySelector('.code-box > p');
     $codeP.textContent = code;
   }
-  
+  // 쿠폰 페이지
+  if(location.href.includes('coupon')) {
+    const $btnGetCoupon = document.querySelector('#btn-coupon');
+    $btnGetCoupon.addEventListener('click', () => getCoupon());
+  }
   
 })

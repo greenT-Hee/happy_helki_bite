@@ -38,10 +38,28 @@ main {
   max-width: 100%;
   margin: 0 auto;
 	background: #FFFCAA;
-  padding: 40px 20px 60px;
+  padding: 50px 20px 60px;
   box-sizing: border-box;
 }
-
+/* 배너 */
+.event-banner a{
+  width: 100%;
+  background: #fff;
+  padding: 12px 0;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+}
+.event-banner p{
+  margin: 0;
+  color: #FF7182;
+  font-size: 14px;
+}
 /* --- start --- */
 section.start {
   position: relative;
@@ -88,7 +106,7 @@ section.question {
 section.question h2,
 section.result h2,
 section.event h2{
-  margin: 0 0 24px;
+  margin: 30px 0 24px;
 }
 section.question h2 img,
 section.result h2 img,
@@ -374,8 +392,9 @@ section.modal {
   top: 0;
   bottom: 0;
   
-} 
+}
 section.modal > div {
+  position: relative;
   background: #fff;
   border-radius: 8px;
   box-sizing: border-box;
@@ -386,6 +405,16 @@ section.modal > div {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+section.modal > div > button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  position: absolute;
+  right: 0px; 
+  top: -24px;
+  cursor: pointer;
+} 
 
 section.modal > div img.qr {
   width: 120px;

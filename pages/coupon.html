@@ -26,8 +26,8 @@
           오프라인 매장 구매시 5천원 할인 혜택을 드립니다
         </p>
         <div class="input-area">
-          <input type="text">
-          <button type="button">쿠폰 받기</button>
+          <input type="text" id="code-input">
+          <button type="button" id="btn-coupon">쿠폰 받기</button>
         </div>
         <div class="event-info">
           <strong>이벤트 참여 방법</strong>
@@ -39,8 +39,9 @@
       </div>
     </section>
 
-    <section class="modal">
+    <section id="event-modal" class="modal">
       <div>
+        <button type="button" id="btn-close">X</button>
         <img class="qr" src="../assets/images/img-qr.png" alt="qr코드">
         <p class="date"><span id="start-date">2024-07-12</span> ~ <span id="end-date">2024-07-19</span></p>
       </div>
