@@ -16,7 +16,7 @@
 
 **3) 디자인**
 
-<img width="500px" src="https://github.com/user-attachments/assets/729f6dce-dd30-44a8-ae3b-b76606801366" alt="시작화면">
+<img width="500px" src="https://github.com/user-attachments/assets/e2810966-cfb1-4f27-b118-1883a4292923" alt="시작화면">
 
 <br>
 <br>
